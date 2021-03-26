@@ -1,10 +1,13 @@
+:root {
+  --primary-color: white;
+  --secondary-color-: #f9a51a;
+  --font-size-: 16px;
+}
+
 body {
   margin: 0;
   font-family: "Raleway", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-:root {
-  --primary-color-: #06c;
+  font-size: var(--font-size-);
 }
