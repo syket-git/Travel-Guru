@@ -11,7 +11,7 @@ const Navigation = ({ color }) => {
           color === 'white' ? 'white__navigation' : 'black__navigation'
         } `}
       >
-        <Navbar.Brand href="#home">Travel Guru</Navbar.Brand>
+        <Navbar.Brand href="/">Travel Guru</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Form className="navbar__form" inline>

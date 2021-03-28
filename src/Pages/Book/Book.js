@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import Navbar from '../../Components/Navbar/Navbar';
+import { Link } from 'react-router-dom';
 import './Book.css';
 
 const Book = () => {
   const stringifyData = localStorage.getItem('selectedItem');
   const data = JSON.parse(stringifyData);
+
+  //Get Auth Token
+  const auth_user_token = localStorage.getItem('auth_user_token');
+
+  console.log(auth_user_token);
 
   const [formData, setFormData] = useState({
     origin: '',
@@ -41,7 +47,7 @@ const Book = () => {
                   <p>{data?.description}</p>
                 </div>
               </div>
-              <div className="col-md-7">
+              <div className="col-md-7 d-flex justify-content-end">
                 <div className="book__wrapper">
                   <form onSubmit={handleSubmit}>
                     <div className="form-group">
@@ -98,7 +104,13 @@ const Book = () => {
                       </div>
                     </div>
                     <div className="form-group">
-                      <button type="submit">Start Booking</button>
+                      {auth_user_token === null ? (
+                        <Link to="/login">
+                          <button type="submit">Start Booking</button>
+                        </Link>
+                      ) : (
+                        <button type="submit">Start Booking</button>
+                      )}
                     </div>
                   </form>
                 </div>
