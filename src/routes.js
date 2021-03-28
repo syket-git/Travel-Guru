@@ -1,10 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-//Components
-
 //Pages
 import Home from './Pages/Home/Home';
+import Book from './Pages/Book/Book';
 
 const Routes = () => {
   return (
@@ -13,6 +12,9 @@ const Routes = () => {
         <Switch>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route exact path="/book/:slug">
+            <Book />
           </Route>
         </Switch>
       </Router>

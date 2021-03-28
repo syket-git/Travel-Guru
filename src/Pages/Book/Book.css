@@ -1,0 +1,27 @@
+.book__wrapper {
+    width: 500px;
+    background: white;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: left;
+}
+.book__wrapper input {
+    width: 100%;
+    border: none;
+    background: rgba(233, 233, 233, 0.733);
+    padding: 15px 15px;
+    border-radius: 4px;
+}
+.book__wrapper input:focus {
+    outline: none;
+}
+
+.book__wrapper button {
+    width: 100%;
+    background: var(--yellow-color-);
+    padding: 8px 20px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+}
