@@ -1,7 +1,7 @@
 :root {
-  --primary-color: white;
-  --secondary-color-: #f9a51a;
-  --font-size-: 16px;
+  --white-color: #fff;
+  --yellow-color-: #f9a51a;
+  --dark-color-: #000;
 }
 
 body {
@@ -9,5 +9,13 @@ body {
   font-family: "Raleway", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: var(--font-size-);
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+a:hover {
+  text-decoration: none !important;
 }

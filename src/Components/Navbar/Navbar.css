@@ -1,0 +1,45 @@
+.white__navigation .navbar-brand {
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 25px !important;
+}
+
+.white__navigation .nav-link {
+    color: white !important;
+}
+.nav-link {
+    margin-right: 25px !important;
+}
+
+.white__navigation .navbar__search {
+    background: transparent !important;
+    border: 2px solid white !important;
+    color: white !important;
+}
+.white__navigation .navbar__search::placeholder {
+    color: white !important;
+}
+
+.navbar__login {
+    background: var(--yellow-color-);
+    padding: 8px 25px !important;
+    color: black !important;
+    font-weight: 600 !important;
+    border-radius: 4px !important;
+}
+
+.white__navigation .navbar-toggler {
+    color: white !important;
+    border-color: white !important;
+    background: white !important;
+}
+
+@media all and (max-width: 992px) {
+    .navbar__form {
+        display: block !important;
+    }
+    .navbar__form input {
+        margin-left: -25px !important;
+        margin-top: 11px !important;
+    }
+}
