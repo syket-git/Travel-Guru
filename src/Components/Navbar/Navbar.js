@@ -3,6 +3,7 @@ import { Navbar, Nav, Form, FormControl } from 'react-bootstrap';
 import './Navbar.css';
 
 const Navigation = ({ color }) => {
+  const auth_user = localStorage.getItem('auth_user');
   return (
     <div className="mt-3">
       <Navbar
@@ -26,13 +27,22 @@ const Navigation = ({ color }) => {
             <Nav.Link href="/destination">Destination</Nav.Link>
             <Nav.Link href="/blog">Blog</Nav.Link>
             <Nav.Link href="/contact">Contact</Nav.Link>
-            <a
-              style={{ color: 'black' }}
-              className="navbar__login"
-              href="/login"
-            >
-              Login
-            </a>
+            {auth_user !== null ? (
+              <span
+                style={{ color: 'black', cursor: 'pointer' }}
+                className="navbar__login"
+              >
+                Logout
+              </span>
+            ) : (
+              <a
+                style={{ color: 'black' }}
+                className="navbar__login"
+                href="/login"
+              >
+                Login
+              </a>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

@@ -3,19 +3,29 @@ import './Auth.css';
 import { Link } from 'react-router-dom';
 import Navbar from '../../Components/Navbar/Navbar';
 import { useForm } from 'react-hook-form';
+import google from '../../images/google.svg';
+import { handleGoogleLogin } from './auth';
+import { Redirect } from 'react-router-dom';
 
 const Register = () => {
-  const { register, errors, handleSubmit, watch, reset } = useForm();
+  const { register, errors, handleSubmit, watch } = useForm();
   const password = useRef({});
   password.current = watch('password', '');
 
   const onSubmit = (data) => {
     console.log(data);
   };
+
+  const auth_user = localStorage.getItem('auth_user');
+
+  if (auth_user !== null) {
+    return <Redirect from="/login" to="/" />;
+  }
+
   return (
     <div className="container">
       <Navbar />
-      <div className="auth">
+      <div className="auth pb-5">
         <div className="auth__wrapper">
           <h5>Create an account</h5>
 
@@ -92,6 +102,14 @@ const Register = () => {
             Already have an account? <Link to="/login">Login</Link>
           </p>
         </div>
+        <button onClick={handleGoogleLogin} className="googleButton">
+          <img
+            style={{ width: '30px', marginRight: '10px' }}
+            src={google}
+            alt="Google"
+          />{' '}
+          Continue with google
+        </button>
       </div>
     </div>
   );

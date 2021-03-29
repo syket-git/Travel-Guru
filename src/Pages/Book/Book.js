@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from '../../Components/Navbar/Navbar';
 import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import './Book.css';
 
 const Book = () => {
@@ -9,25 +10,16 @@ const Book = () => {
 
   //Get Auth Token
   const auth_user_token = localStorage.getItem('auth_user_token');
+  //Get Selected Item
+  const item = localStorage.getItem('selectedItem');
+  const selectedItem = item !== null && JSON.parse(item);
 
-  console.log(auth_user_token);
+  const { register, handleSubmit, errors } = useForm();
 
-  const [formData, setFormData] = useState({
-    origin: '',
-    destination: data?.name,
-    from: '',
-    to: '',
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-    setFormData({
-      origin: '',
-      destination: data?.name,
-      from: '',
-      to: '',
-    });
+  const onSubmit = (data) => {
+    data.destination = selectedItem !== null && selectedItem.name;
+    data.slug = selectedItem !== null && selectedItem.slug;
+    console.log(data);
   };
 
   return (
@@ -49,26 +41,28 @@ const Book = () => {
               </div>
               <div className="col-md-7 d-flex justify-content-end">
                 <div className="book__wrapper">
-                  <form onSubmit={handleSubmit}>
+                  <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-group">
                       <label htmlFor="origin">Origin</label>
                       <input
                         id="origin"
                         name="origin"
                         type="text"
-                        value={formData.origin}
-                        onChange={(e) =>
-                          setFormData({ ...formData, origin: e.target.value })
-                        }
+                        ref={register({ required: true })}
                         placeholder="Origin"
                       />
+                      {errors.origin && (
+                        <span className="error mt-1 w-100">
+                          Origin is required
+                        </span>
+                      )}
                     </div>
                     <div className="form-group">
                       <label htmlFor="destination">Destination</label>
                       <input
                         id="destination"
                         name="destination"
-                        value={formData.destination}
+                        value={selectedItem.name}
                         readOnly
                         type="text"
                         placeholder="Destination"
@@ -82,12 +76,14 @@ const Book = () => {
                           id="from"
                           name="from"
                           type="date"
-                          value={formData.from}
-                          onChange={(e) =>
-                            setFormData({ ...formData, from: e.target.value })
-                          }
+                          ref={register({ required: true })}
                           placeholder="From date"
                         />
+                        {errors.from && (
+                          <span className="error mt-1">
+                            From date is required
+                          </span>
+                        )}
                       </div>
                       <div className="form-group ml-2">
                         <label htmlFor="destination">To</label>
@@ -95,12 +91,14 @@ const Book = () => {
                           id="to"
                           name="to"
                           type="date"
-                          value={formData.to}
-                          onChange={(e) =>
-                            setFormData({ ...formData, to: e.target.value })
-                          }
+                          ref={register({ required: true })}
                           placeholder="To date"
                         />
+                        {errors.from && (
+                          <span className="error mt-1">
+                            From date is required
+                          </span>
+                        )}
                       </div>
                     </div>
                     <div className="form-group">

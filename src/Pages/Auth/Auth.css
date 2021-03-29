@@ -34,3 +34,11 @@
     padding: 10px 20px;
     border-radius: 5px;
 }
+
+/* Google Button Style */
+.googleButton {
+    border: 1px solid lightgray;
+    background: white;
+    padding: 8px 50px;
+    border-radius: 41px;
+}
