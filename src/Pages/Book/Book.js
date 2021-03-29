@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import Navbar from '../../Components/Navbar/Navbar';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
 import './Book.css';
 
 const Book = () => {
   const stringifyData = localStorage.getItem('selectedItem');
   const data = JSON.parse(stringifyData);
+  const history = useHistory();
 
   //Get Auth Token
   const auth_user_token = localStorage.getItem('auth_user_token');
@@ -19,7 +21,8 @@ const Book = () => {
   const onSubmit = (data) => {
     data.destination = selectedItem !== null && selectedItem.name;
     data.slug = selectedItem !== null && selectedItem.slug;
-    console.log(data);
+    localStorage.setItem('startBooking', JSON.stringify(data));
+    history.push(`/search?query=${selectedItem.slug}`);
   };
 
   return (

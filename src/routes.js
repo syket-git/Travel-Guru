@@ -6,6 +6,7 @@ import Home from './Pages/Home/Home';
 import Book from './Pages/Book/Book';
 import Login from './Pages/Auth/Login';
 import Register from './Pages/Auth/Register';
+import Search from './Pages/Search/Search';
 
 const Routes = () => {
   return (
@@ -15,14 +16,17 @@ const Routes = () => {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/book/:slug">
+          <Route path="/book/:slug">
             <Book />
           </Route>
-          <Route exact path="/login">
+          <Route path="/login">
             <Login />
           </Route>
-          <Route exact path="/register">
+          <Route path="/register">
             <Register />
+          </Route>
+          <Route path="/search">
+            <Search />
           </Route>
         </Switch>
       </Router>
