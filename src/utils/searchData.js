@@ -12,6 +12,10 @@ export const searchData = [
     ratings: 4,
     totalRatings: 20,
     amount: 34,
+    location: {
+      lat: 21.4271,
+      lng: 92.0059,
+    },
   },
   {
     slug: 'coxs-bazar',
@@ -26,6 +30,10 @@ export const searchData = [
     ratings: 4,
     totalRatings: 20,
     amount: 34,
+    location: {
+      lat: 21.4275,
+      lng: 92.0052,
+    },
   },
   {
     slug: 'coxs-bazar',
@@ -40,6 +48,10 @@ export const searchData = [
     ratings: 4,
     totalRatings: 20,
     amount: 34,
+    location: {
+      lat: 21.4279,
+      lng: 92.0051,
+    },
   },
   {
     slug: 'sreemangal',
@@ -54,6 +66,10 @@ export const searchData = [
     ratings: 4,
     totalRatings: 20,
     amount: 34,
+    location: {
+      lat: 24.3068,
+      lng: 91.7293,
+    },
   },
   {
     slug: 'sreemangal',
@@ -68,6 +84,10 @@ export const searchData = [
     ratings: 4,
     totalRatings: 20,
     amount: 34,
+    location: {
+      lat: 24.3061,
+      lng: 91.7297,
+    },
   },
   {
     slug: 'sreemangal',
@@ -82,6 +102,10 @@ export const searchData = [
     ratings: 4,
     totalRatings: 20,
     amount: 34,
+    location: {
+      lat: 24.3061,
+      lng: 91.7299,
+    },
   },
   {
     slug: 'sundarban',
@@ -96,6 +120,10 @@ export const searchData = [
     ratings: 4,
     totalRatings: 20,
     amount: 34,
+    location: {
+      lat: 21.9492,
+      lng: 89.1839,
+    },
   },
   {
     slug: 'sundarban',
@@ -110,6 +138,10 @@ export const searchData = [
     ratings: 4,
     totalRatings: 20,
     amount: 34,
+    location: {
+      lat: 21.9494,
+      lng: 89.1838,
+    },
   },
   {
     slug: 'sundarban',
@@ -124,5 +156,9 @@ export const searchData = [
     ratings: 4,
     totalRatings: 20,
     amount: 34,
+    location: {
+      lat: 21.949,
+      lng: 89.1833,
+    },
   },
 ];

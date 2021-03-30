@@ -3,6 +3,8 @@ import Navbar from '../../Components/Navbar/Navbar';
 import { searchData } from '../../utils/searchData';
 import SearchBox from '../../Components/SearchBox/SearchBox';
 import moment from 'moment';
+import Map from '../../Components/Map/Map';
+
 const Search = () => {
   //Get item in localStorage
 
@@ -17,6 +19,8 @@ const Search = () => {
   const finalData = searchData.filter(
     (data) => data.slug === selectedItem.slug
   );
+
+  const center = finalData[0].location;
 
   return (
     <div className="search">
@@ -41,6 +45,9 @@ const Search = () => {
             ) : (
               <p>We couldn't find any data</p>
             )}
+          </div>
+          <div className="col-xl-6 mt-5">
+            <Map data={finalData} center={center} />
           </div>
         </div>
       </div>

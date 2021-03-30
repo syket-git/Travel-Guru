@@ -17,9 +17,21 @@ const SearchBox = ({ data }) => {
           <p className="pt-2">{data.description.substr(0, 80)}...</p>
           <div className="pt-2 d-flex align-items-center justify-content-between">
             <p>
+              <span
+                style={{
+                  color: 'goldenrod',
+                  fontSize: '22px',
+                  marginRight: '10px',
+                }}
+              >
+                &#9733;
+              </span>
               {data.ratings} / 5 ({data.totalRatings})
             </p>
-            <p>{data.amount}/night</p>
+            <p>
+              <span className="font-weight-bold"> {data.amount}$</span>
+              /night
+            </p>
           </div>
         </div>
       </div>
