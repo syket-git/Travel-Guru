@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from '../../Components/Navbar/Navbar';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -11,7 +11,7 @@ const Book = () => {
   const history = useHistory();
 
   //Get Auth Token
-  const auth_user_token = localStorage.getItem('auth_user_token');
+  const auth_user = localStorage.getItem('auth_user');
   //Get Selected Item
   const item = localStorage.getItem('selectedItem');
   const selectedItem = item !== null && JSON.parse(item);
@@ -105,7 +105,7 @@ const Book = () => {
                       </div>
                     </div>
                     <div className="form-group">
-                      {auth_user_token === null ? (
+                      {auth_user === null ? (
                         <Link to="/login">
                           <button type="submit">Start Booking</button>
                         </Link>

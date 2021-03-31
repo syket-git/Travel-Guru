@@ -11,8 +11,6 @@ const Search = () => {
   const book = localStorage.getItem('startBooking');
   const finalBook = book !== null && JSON.parse(book);
 
-  console.log(finalBook);
-
   const item = localStorage.getItem('selectedItem');
   const selectedItem = item !== null && JSON.parse(item);
 

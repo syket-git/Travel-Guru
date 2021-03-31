@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import GoogleMapReact from 'google-map-react';
 import './Map.css';
 import useOnClickOutside from '../useOnclickOutside/useOnclickOutside';
-require('dotenv').config();
 
 const AnyReactComponent = ({ text, data }) => {
   const ref = useRef();

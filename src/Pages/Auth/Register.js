@@ -4,16 +4,17 @@ import { Link } from 'react-router-dom';
 import Navbar from '../../Components/Navbar/Navbar';
 import { useForm } from 'react-hook-form';
 import google from '../../images/google.svg';
-import { handleGoogleLogin } from './auth';
+import { handleGoogleLogin, createUser } from './auth';
 import { Redirect } from 'react-router-dom';
+import { useSnackbar } from 'notistack';
 
 const Register = () => {
   const { register, errors, handleSubmit, watch } = useForm();
   const password = useRef({});
   password.current = watch('password', '');
-
+  const { enqueueSnackbar } = useSnackbar();
   const onSubmit = (data) => {
-    console.log(data);
+    createUser(data, enqueueSnackbar);
   };
 
   const auth_user = localStorage.getItem('auth_user');
@@ -102,7 +103,10 @@ const Register = () => {
             Already have an account? <Link to="/login">Login</Link>
           </p>
         </div>
-        <button onClick={handleGoogleLogin} className="googleButton">
+        <button
+          onClick={() => handleGoogleLogin(enqueueSnackbar)}
+          className="googleButton"
+        >
           <img
             style={{ width: '30px', marginRight: '10px' }}
             src={google}

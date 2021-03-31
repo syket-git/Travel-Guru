@@ -1,11 +1,11 @@
 import React from 'react';
 import Routes from './routes';
 import './App.css';
-import SnackbarProvider from 'react-simple-snackbar';
+import { SnackbarProvider } from 'notistack';
 function App() {
   return (
     <div className="App">
-      <SnackbarProvider>
+      <SnackbarProvider maxSnack={5}>
         <Routes />
       </SnackbarProvider>
     </div>

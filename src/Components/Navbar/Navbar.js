@@ -1,9 +1,15 @@
 import React from 'react';
 import { Navbar, Nav, Form, FormControl } from 'react-bootstrap';
 import './Navbar.css';
+import { useHistory } from 'react-router-dom';
 
 const Navigation = ({ color }) => {
   const auth_user = localStorage.getItem('auth_user');
+  const history = useHistory();
+  const handleLogout = () => {
+    localStorage.removeItem('auth_user');
+    history.push('/login');
+  };
   return (
     <div className="mt-3">
       <Navbar
@@ -29,6 +35,7 @@ const Navigation = ({ color }) => {
             <Nav.Link href="/contact">Contact</Nav.Link>
             {auth_user !== null ? (
               <span
+                onClick={handleLogout}
                 style={{ color: 'black', cursor: 'pointer' }}
                 className="navbar__login"
               >
