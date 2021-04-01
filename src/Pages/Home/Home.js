@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import './Home.css';
-
 import { useHistory } from 'react-router-dom';
+import './Home.css';
 
 //Components
 import Navbar from '../../Components/Navbar/Navbar';
@@ -30,8 +29,10 @@ const Home = () => {
           </section>
           {/* Content */}
           <section>
-            <div className="row home__destination">
-              <div className="col-md-5">
+            {/* For Laptop Screen */}
+
+            <div className="row home__destination laptop">
+              <div className="col-xl-5 col-md-12">
                 <div className="home__destination-description">
                   <h1>{destinationDetails?.name}</h1>
                   <p>{destinationDetails?.description}</p>
@@ -43,7 +44,7 @@ const Home = () => {
                   </button>
                 </div>
               </div>
-              <div className="col-md-7">
+              <div className="col-xl-7 col-md-12">
                 <div className="home__destination-display">
                   {destination?.length > 0 &&
                     destination?.map((dest, i) => (
@@ -64,6 +65,49 @@ const Home = () => {
                         <h4>{dest?.name}</h4>
                       </div>
                     ))}
+                </div>
+              </div>
+            </div>
+
+            {/* For Mobile Screen */}
+
+            <div className="home__destination mobile">
+              <div className="home__destination-display">
+                {destination?.length > 0 &&
+                  destination?.map((dest, i) => (
+                    <div
+                      key={i}
+                      style={{ flex: '0 1 200px', marginRight: '10px' }}
+                    >
+                      <div
+                        onClick={() => setDestinationDetails(dest)}
+                        className={`home__destination-display-item ${
+                          destinationDetails.slug === dest.slug &&
+                          'home__destination-display-item-active'
+                        }`}
+                      >
+                        <img
+                          className="img-fluid"
+                          src={dest?.image}
+                          alt={dest?.name}
+                        />
+                        <div className="home__destination-display-item-overlay"></div>
+                        <h4>{dest?.name}</h4>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+
+              <div className="col-md-12">
+                <div className="home__destination-description">
+                  <h1>{destinationDetails?.name}</h1>
+                  <p>{destinationDetails?.description}</p>
+                  <button
+                    onClick={() => handleBooking(destinationDetails)}
+                    className="home__destination-description-button"
+                  >
+                    Booking
+                  </button>
                 </div>
               </div>
             </div>

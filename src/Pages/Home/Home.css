@@ -85,3 +85,30 @@
     left: 18px;
     font-size: 18px;
 }
+
+.mobile {
+    display: none !important;
+}
+
+/* Responsive Media query */
+
+@media all and (max-width: 1200px) {
+    .mobile {
+        display: block !important;
+    }
+    .laptop {
+        display: none !important;
+    }
+    .home__destination-display {
+        display: flex;
+        overflow-x: scroll;
+    }
+
+    .home__destination-display::-webkit-scrollbar {
+        display: none !important;
+    }
+    .home__destination-display {
+        -ms-overflow-style: none !important;
+        scrollbar-width: none !important;
+    }
+}

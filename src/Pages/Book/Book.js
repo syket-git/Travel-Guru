@@ -72,7 +72,7 @@ const Book = () => {
                       />
                     </div>
 
-                    <div className="d-flex align-items-center justify-content-between">
+                    <div className="book__input__group">
                       <div className="form-group">
                         <label htmlFor="destination">From</label>
                         <input
