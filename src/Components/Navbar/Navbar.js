@@ -29,10 +29,10 @@ const Navigation = ({ color }) => {
             />
           </Form>
           <Nav className="ml-auto">
-            <Nav.Link href="/news">News</Nav.Link>
-            <Nav.Link href="/destination">Destination</Nav.Link>
-            <Nav.Link href="/blog">Blog</Nav.Link>
-            <Nav.Link href="/contact">Contact</Nav.Link>
+            <Nav.Link href="/">News</Nav.Link>
+            <Nav.Link href="/">Destination</Nav.Link>
+            <Nav.Link href="/">Blog</Nav.Link>
+            <Nav.Link href="/">Contact</Nav.Link>
             {auth_user !== null ? (
               <span
                 onClick={handleLogout}

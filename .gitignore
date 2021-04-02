@@ -6,8 +6,9 @@
 .env
 .pnp.js
 /public
-
-
+.firebase
+.firebaserc
+firebase.json
 # testing
 /coverage
 
